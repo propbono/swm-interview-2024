@@ -1,17 +1,20 @@
 {
   "name": "swm-with-tests",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "dev": "ts-node main.ts",
+    "dev:old": "ts-node main_old.ts",
     "test": "vitest"
   },
-  "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.3.9",
-    "vitest": "^0.32.0"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vitest": "^2.0.4"
   }
 }
