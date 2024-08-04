@@ -56,6 +56,9 @@ export const filterTwoSequences = (
   let maxOccurenceCount = 0;
   const sequenceASet = new Set(sequenceA);
 
+  // Calculating occurence count in sequenceB only for numbers that are in sequenceA
+  // Also calculating max occurence count in sequenceB
+  // This is done to reduce time complexity as we only numbers that are in SequenceA are relevant
   for (const num of sequenceB) {
     if (sequenceASet.has(num)) {
       occurenceCountInSequenceB[num] =
@@ -65,6 +68,7 @@ export const filterTwoSequences = (
       maxOccurenceCount = occurenceCountInSequenceB[num];
   }
 
+  // Calculate array of prime numbers based on max occurence in sequenceB
   const maxPossiblePrimeOccurences =
     getPossiblePrimeNumberOccurences(maxOccurenceCount);
 

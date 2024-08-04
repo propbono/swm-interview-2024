@@ -85,3 +85,39 @@ describe('getPossiblePrimeNumberOccurences - Find Prime Numbers Up to n max leng
     expect(expected3).toMatchObject(result3);
   });
 });
+describe('Occurrence counting in filterTwoSequences', () => {
+  it('should correctly count occurrences of numbers from sequenceA in sequenceB', () => {
+    const sequenceA = [1, 2, 3, 4, 5];
+    const sequenceB = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5];
+    const result = filterTwoSequences(sequenceA, sequenceB);
+    expect(result).toEqual([1, 4]);
+  });
+
+  it('should handle large numbers of occurrences', () => {
+    const sequenceA = [1, 2];
+    const sequenceB = new Array(100).fill(1).concat(new Array(101).fill(2));
+    const result = filterTwoSequences(sequenceA, sequenceB);
+    expect(result).toEqual([2]);
+  });
+
+  it('should handle numbers with zero occurrences', () => {
+    const sequenceA = [1, 2, 3, 4, 5];
+    const sequenceB = [1, 1, 2, 2, 4, 4, 5, 5];
+    const result = filterTwoSequences(sequenceA, sequenceB);
+    expect(result).toEqual([3]);
+  });
+
+  it('should handle negative numbers', () => {
+    const sequenceA = [-1, -2, -3, 0, 1, 2, 3];
+    const sequenceB = [-1, -1, -2, -2, -2, 0, 0, 1, 2, 2, 3, 3, 3];
+    const result = filterTwoSequences(sequenceA, sequenceB);
+    expect(result).toEqual([-1, 0, 1]);
+  });
+
+  it('should handle duplicate numbers in sequenceA', () => {
+    const sequenceA = [1, 2, 2, 3, 3, 3];
+    const sequenceB = [1, 2, 2, 3, 3, 3, 3];
+    const result = filterTwoSequences(sequenceA, sequenceB);
+    expect(result).toEqual([1, 2, 2]);
+  });
+});
