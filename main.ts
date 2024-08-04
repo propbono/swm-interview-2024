@@ -1,7 +1,7 @@
 // Language: Typescript 5.5.4
 // Testing Lib: Vitest 2.0.4
 // Time complexity: O(m + n + k log log k)
-// Possible improvements: We could use sieve of Atking algorithm for calculating the set of possible prime number occurrences and improve time complexity to O(m + n + k/log log k) Howerver this alghoritm is more efficient for very large numbers. Taking into consideration the complexity of this alghoritm and that we use only maximum possible number occurence to calculate primes I decided to use Sieve of Erasthotenes algorithm.
+// Possible improvements: We could use sieve of Atkin algorithm for calculating the set of possible prime number occurrences and improve time complexity to O(m + n + k/log log k) However this algorithm is more efficient for very large numbers. Taking into consideration the complexity of this algorithm and that we use only maximum possible number occurrence to calculate primes I decided to use Sieve of Eratosthenes algorithm.
 
 /**
  * Calculates the set of possible prime number occurrences for a given sequence length.
