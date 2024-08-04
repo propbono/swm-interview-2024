@@ -53,13 +53,20 @@ export const filterTwoSequences = (
   const resultSequence = [];
   const occurenceCountInSequenceB: { [key: number]: number } = {};
 
+  let maxOccurenceCount = 0;
+  const sequenceASet = new Set(sequenceA);
+
   for (const num of sequenceB) {
-    occurenceCountInSequenceB[num] = (occurenceCountInSequenceB[num] || 0) + 1;
+    if (sequenceASet.has(num)) {
+      occurenceCountInSequenceB[num] =
+        (occurenceCountInSequenceB[num] || 0) + 1;
+    }
+    if (occurenceCountInSequenceB[num] > maxOccurenceCount)
+      maxOccurenceCount = occurenceCountInSequenceB[num];
   }
 
-  const maxPossiblePrimeOccurences = getPossiblePrimeNumberOccurences(
-    Math.max(...Object.values(occurenceCountInSequenceB))
-  );
+  const maxPossiblePrimeOccurences =
+    getPossiblePrimeNumberOccurences(maxOccurenceCount);
 
   for (const num of sequenceA) {
     const value = occurenceCountInSequenceB[num];
